@@ -36,6 +36,6 @@ console.log(JSON.stringify(cars));
 
 //    Iterate the collection and log each car in the console.
 cars.each(function(car){
-    console.log(JSON.stringify(car));
+    console.log(car.toJSON());
 });
 
