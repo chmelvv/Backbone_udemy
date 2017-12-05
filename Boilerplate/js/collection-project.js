@@ -21,21 +21,21 @@ var cars = new Cars([
 ]);
 
 //Find all the Blue cars and log them in the console.
-console.log( cars.where({ colour : "Blue" }) );
+// console.log( cars.where({ colour : "Blue" }) );
 
 //Find the car with the registration number XLI887 and log it in the console.
-console.log( cars.where({ registrationNumber : "XLI887"}));
+// console.log( cars.where({ registrationNumber : "XLI887"}));
 
 // Remove this car from the collection
-cars.list();
-cars.remove( cars.where({ registrationNumber : "XLI887"}) ); //must be passed object not filter predicate
-cars.list();
+// cars.list();
+// cars.remove( cars.where({ registrationNumber : "XLI887"}) ); //must be passed object not filter predicate
+// cars.list();
 
 //    Convert the collection to a JSON object and log it in the console.
-console.log(JSON.stringify(cars));
+// console.log(JSON.stringify(cars));
 
 //    Iterate the collection and log each car in the console.
-cars.each(function(car){
-    console.log(car.toJSON());
-});
+// cars.each(function(car){
+//     console.log(car.toJSON());
+// });
 

@@ -25,9 +25,9 @@ var car = new Car({
     color: "Blue"
 });
 
-car.unset("registrationNumber");
-console.log("Is car valid:" + car.isValid());
-
-car.set({registrationNumber : "XLI887"});
-console.log("Is car valid:" + car.isValid());
-car.start();
+// car.unset("registrationNumber");
+// console.log("Is car valid:" + car.isValid());
+//
+// car.set({registrationNumber : "XLI887"});
+// console.log("Is car valid:" + car.isValid());
+// car.start();
