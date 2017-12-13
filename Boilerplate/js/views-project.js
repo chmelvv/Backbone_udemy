@@ -11,7 +11,7 @@ var vehicles = new Vehicles([
     new Vehicle({vehicleNumber: "AI 1234", color: "blue"}),
     new Vehicle({vehicleNumber: "DF 2344", color: "red"}),
     new Vehicle({vehicleNumber: "RG 1456", color: "green"}),
-    new Vehicle({vehicleNumber: "HJ 7734", color: "white"})
+    new Vehicle({vehicleNumber: "HJ 7734", color: "black"})
 ]);
 
 // Each Vehicle should be displayed as an LI with the class vehicle. Inside the LI display
@@ -21,7 +21,9 @@ var VehicleView= Backbone.View.extend({
     class: "vehicle",
 
     render: function(){
-        this.$el.html(this.model.get("vehicleNumber") + '<button>Delete</button>');
+        this.$el.html(this.model.get("vehicleNumber") + ' <button>Delete</button>');
+        this.$el.attr("data-color", this.model.get("color"));
+        this.$el.attr("style", "color:" + this.model.get("color"));
         return this;
     }
 
@@ -32,11 +34,16 @@ var VehiclesView = Backbone.View.extend({
     class: "vehicles",
 
     render: function () {
+        var self = this;
+        this.model.each( function(vehicle){
+            var  vehicleView = new VehicleView({ model: vehicle});
+            self.$el.append(vehicleView.render().$el)
+        });
 
     }
 });
 
-var vehiclesView = new VehiclesView({model: vehicles});
+var vehiclesView = new VehiclesView({ el: "#vehicles", model: vehicles});
 vehiclesView.render();
 
 //
