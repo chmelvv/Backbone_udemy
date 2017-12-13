@@ -29,11 +29,13 @@ var SongsView = Backbone.View.extend({
     onSongAdded: function(song){
         var songView = new SongView({model: song});
         this.$el.append(songView.render().$el);
+        console.log('Song \"' + song.get("title") + '\" added');
     },
 
     onSongRemoved: function (song) {
         //this.$el.find("li#" + song.id).remove();
         this.$("li#" + song.id).remove();
+        console.log('Song \"' + song.get("title") + '\" removed');
     },
 
     render: function(){
