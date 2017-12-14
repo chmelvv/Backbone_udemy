@@ -19,11 +19,19 @@ var VehicleView= Backbone.View.extend({
     tagName: "li",
     class: "vehicle",
 
+    events: {
+        "click .delete": "onClickDelete"
+    },
 
+// When the delete button is clicked, remove the corresponding LI from the DOM.
+    onClickDelete: function(e){
+        e.stopPropagation();
+        this.remove();
+    },
 
     render: function(){
 // Inside the LI display the registration number of the vehicle followed by a button called Delete.
-        this.$el.html(this.model.get("vehicleNumber") + ' <button>Delete</button>');
+        this.$el.html(this.model.get("vehicleNumber") + ' <button class="delete">Delete</button>');
 // Each list item should have the HTML5 data attribute data-color.
         this.$el.attr("data-color", this.model.get("color"));
         this.$el.attr("style", "color:" + this.model.get("color")); //my invention
@@ -47,7 +55,3 @@ var VehiclesView = Backbone.View.extend({
 
 var vehiclesView = new VehiclesView({ el: "#vehicles", model: vehicles});
 vehiclesView.render();
-
-
-
-// When the delete button is clicked, remove the corresponding LI from the DOM.
